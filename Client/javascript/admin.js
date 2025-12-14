@@ -7,7 +7,7 @@ if (file) {
     reader.onload = function(event) {
         imagePreview.src = event.target.result;
     };
-    reader.readAsDataURL(file);
+    // reader.readAsDataURL(file);
 }
 });
 
