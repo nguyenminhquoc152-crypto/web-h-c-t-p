@@ -322,11 +322,20 @@ save.addEventListener("click", async function () {
     alert("Lỗi! Không thể lưu quiz.");
   }
 
-
-
-
 })
 
+
+//chuyển đổi giữa các trang
+let toHome = document.getElementById("home")
+let toDiscovery = document.getElementById("discovery")
+let toProfile = document.getElementById("profile")
+toHome.addEventListener("click", function(){
+  window.location.href = "home.html"
+})
+
+toProfile.addEventListener("click", function(){
+  window.location.href = "profile.html"
+})
 
 
 
