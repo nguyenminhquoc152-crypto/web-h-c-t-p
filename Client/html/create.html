@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tạo bộ câu hỏi nâng cao</title>
+   <link rel="stylesheet" href="/Client/css/create.css">
+</head>
+
+<body>
+  <header id="header">
+    <div class="flex justify-between" id="nav">
+      <button class="btn" id="home">Home</button>
+      <button class="btn" id="discovery">Discovery</button>
+      <button class="btn" id="profile">Profile</button>
+      <button class="btn" id="create">Create</button>
+    </div>
+    <!-- Tìm kiếm quiz & khóa học -->
+    <input type="text" placeholder=" Tìm kiếm quiz & courses" id="search-bar">
+    <button class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </header>
+  <!-- container -->
+  <div class="creator-container">
+    <h2>Tạo bộ câu hỏi</h2>
+
+    <!-- Thông tin bộ câu hỏi -->
+    <div class="section">
+      <h3>Thông tin bộ câu hỏi</h3>
+      <label>Tên bộ câu hỏi</label>
+      <input id="quiz-title" type="text" placeholder="VD: Kiến thức thiên văn học..." />
+
+      <label>Mô tả</label>
+      <textarea id="quiz-des" placeholder="Nhập mô tả ngắn..." rows="3"></textarea>
+
+      <label>Ảnh đại diện</label>
+      <input type="file" accept="image/*" onchange="previewThumbnail(event)">
+      <div id="thumbnail" class="thumbnail-preview"></div>
+
+      <label>Chủ đề</label>
+      <select id="quiz-category">
+        <option>Toán</option>
+        <option>Thiên văn</option>
+        <option>Lịch sử</option>
+        <option>Địa lý</option>
+        <option>Khoa học</option>
+        <option>Âm nhạc</option>
+      </select>
+    </div>
+    <label for="" id="">Quyền truy cập</label>
+    <select name="" id="permission">
+      <option value="Công khai">Công khai</option>
+      <option value="Không công khai">Không công khai</option>
+    </select>
+
+    <!-- Danh sách câu hỏi -->
+    <h3>Danh sách câu hỏi</h3>
+    <div id="questions"></div>
+    <button class="add-btn" id="add">+ Thêm câu hỏi</button>
+    <button class="save-btn" id="save">Lưu bộ câu hỏi</button>
+    <button class="cancle-btn" id="cancle">Quay lại trang chủ</button>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <script src="/Client/javascript/firebaseConfig.js"></script>
+  <script src="/Client/javascript/create.js"></script>
+
+  <!-- <script>
+ let count = 0;
+
+ function previewThumbnail(e) {
+   const file = e.target.files[0];
+   if (file) {
+     document.getElementById('thumbnail').style.backgroundImage = `url(${URL.createObjectURL(file)})`;
+   }
+ }
+
+ function addQuestion() {
+   count++;
+   const container = document.getElementById('questions');
+
+   const div = document.createElement('div');
+   div.className = 'question-card';
+
+   div.innerHTML = `
+     <label><b>Câu hỏi ${count}</b></label>
+     <input type="text" placeholder="Nhập nội dung câu hỏi..." />
+
+     <label>Loại câu hỏi</label>
+     <select onchange="toggleQuestionType(this)">
+       <option value="mcq">Trắc nghiệm</option>
+       <option value="tf">Đúng / Sai</option>
+       <option value="short">Trả lời ngắn</option>
+     </select>
+
+     <div class="question-options">
+       <label>Đáp án A</label>
+       <input type="text" placeholder="Nhập đáp án A...">
+
+       <label>Đáp án B</label>
+       <input type="text" placeholder="Nhập đáp án B...">
+
+       <label>Đáp án C</label>
+       <input type="text" placeholder="Nhập đáp án C...">
+
+       <label>Đáp án D</label>
+       <input type="text" placeholder="Nhập đáp án D...">
+
+       <label>Đáp án đúng</label>
+       <select>
+         <option>A</option>
+         <option>B</option>
+         <option>C</option>
+         <option>D</option>
+       </select>
+     </div>
+
+     <div class="settings">
+       <label>Thời gian giới hạn (giây)</label>
+       <input type="number" placeholder="VD: 20" />
+
+       <label>Số điểm</label>
+       <input type="number" placeholder="VD: 1000" />
+     </div>
+
+     <button class="remove-btn" onclick="this.parentElement.remove()">Xóa câu hỏi</button>
+   `;
+
+   container.appendChild(div);
+ }
+
+ function toggleQuestionType(select) {
+   const card = select.parentElement;
+   const optionBox = card.querySelector('.question-options');
+
+   if (select.value === 'mcq') {
+     optionBox.style.display = 'block';
+     optionBox.innerHTML = `
+       <label>Đáp án A</label>
+       <input type="text" placeholder="Nhập đáp án A...">
+       <label>Đáp án B</label>
+       <input type="text" placeholder="Nhập đáp án B...">
+       <label>Đáp án C</label>
+       <input type="text" placeholder="Nhập đáp án C...">
+       <label>Đáp án D</label>
+       <input type="text" placeholder="Nhập đáp án D...">
+       <label>Đáp án đúng</label>
+       <select>
+         <option>A</option>
+         <option>B</option>
+         <option>C</option>
+         <option>D</option>
+       </select>`;
+   }
+   else if (select.value === 'tf') {
+     optionBox.style.display = 'block';
+     optionBox.innerHTML = `
+       <label>Đáp án đúng</label>
+       <select>
+         <option>Đúng</option>
+         <option>Sai</option>
+       </select>`;
+   }
+   else {
+     optionBox.style.display = 'block';
+     optionBox.innerHTML = `
+       <label>Đáp án đúng</label>
+       <input type="text" placeholder="Nhập đáp án ngắn...">`;
+   }
+ }
+</script> -->
+</body>
+
+</html>

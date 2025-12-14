@@ -1,0 +1,234 @@
+[
+  {
+    "id": "science_chemistry",
+    "title": "Hóa Học Cơ Bản",
+    "avatar": "https://cdn.pixabay.com/photo/2017/03/05/20/56/chemistry-2122108_1280.jpg",
+    "category": "Science",
+    "subcategory": "Chemistry",
+    "description": "Bộ câu hỏi về các nguyên tố, phản ứng và bảng tuần hoàn hoá học.",
+    "difficulty": "mixed",
+    "questions": [
+      {
+        "question": "Nguyên tố nào có ký hiệu là H?",
+        "correctAnswer": "Hydro",
+        "incorrectAnswers": ["Helium", "Oxy", "Cacbon"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2015/10/16/01/22/hydrogen-990236_1280.jpg"
+      },
+      {
+        "question": "Công thức hóa học của nước là gì?",
+        "correctAnswer": "H2O",
+        "incorrectAnswers": ["CO2", "NaCl", "NH3"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/water-1239719_1280.jpg"
+      },
+      {
+        "question": "Nguyên tố nào có ký hiệu là O?",
+        "correctAnswer": "Oxy",
+        "incorrectAnswers": ["Vàng", "Bạc", "Kẽm"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2018/04/18/18/56/oxygen-3336375_1280.jpg"
+      },
+      {
+        "question": "Muối ăn có công thức là gì?",
+        "correctAnswer": "NaCl",
+        "incorrectAnswers": ["KCl", "NaOH", "HCl"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2017/06/20/19/22/salt-2425283_1280.jpg"
+      },
+      {
+        "question": "Kim loại dẫn điện tốt nhất là?",
+        "correctAnswer": "Bạc",
+        "incorrectAnswers": ["Đồng", "Nhôm", "Sắt"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2016/07/28/20/47/silver-1547790_1280.jpg"
+      },
+      {
+        "question": "Đơn vị đo nồng độ dung dịch là?",
+        "correctAnswer": "Mol/lít",
+        "incorrectAnswers": ["kg/m³", "g/lít", "l/phút"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2017/07/21/00/27/chemistry-2529707_1280.jpg"
+      },
+      {
+        "question": "Nguyên tố có số nguyên tử là 1 là?",
+        "correctAnswer": "Hydro",
+        "incorrectAnswers": ["Helium", "Lithium", "Nitrogen"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2018/11/06/10/26/periodic-table-3794926_1280.jpg"
+      },
+      {
+        "question": "Axit mạnh nhất trong các axit sau?",
+        "correctAnswer": "HCl",
+        "incorrectAnswers": ["NaOH", "H2O", "CO2"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2012/03/04/00/01/beaker-21610_1280.jpg"
+      },
+      {
+        "question": "Chất nào là bazơ?",
+        "correctAnswer": "NaOH",
+        "incorrectAnswers": ["HCl", "H2O", "CO2"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2014/04/03/10/32/test-311037_1280.png"
+      },
+      {
+        "question": "Hành tinh nào có nhiều CO2 nhất?",
+        "correctAnswer": "Sao Kim",
+        "incorrectAnswers": ["Trái Đất", "Sao Hỏa", "Sao Mộc"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2015/10/31/12/56/venus-1013969_1280.jpg"
+      },
+      {
+        "question": "Số Avogadro là?",
+        "correctAnswer": "6.022 × 10^23",
+        "incorrectAnswers": ["9.81 m/s²", "3.14", "1.6 × 10^-19"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2020/08/15/14/23/dna-5498475_1280.jpg"
+      },
+      {
+        "question": "Bảng tuần hoàn do ai phát minh?",
+        "correctAnswer": "Dmitri Mendeleev",
+        "incorrectAnswers": ["Einstein", "Newton", "Curie"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2016/02/02/15/39/periodic-table-1174143_1280.jpg"
+      },
+      {
+        "question": "Số proton trong oxy là?",
+        "correctAnswer": "8",
+        "incorrectAnswers": ["2", "6", "12"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2018/11/06/10/26/periodic-table-3794926_1280.jpg"
+      },
+      {
+        "question": "Axit trong chanh là?",
+        "correctAnswer": "Axit citric",
+        "incorrectAnswers": ["Axit lactic", "Axit acetic", "Axit formic"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2014/07/08/12/35/lemon-386011_1280.jpg"
+      },
+      {
+        "question": "Phản ứng hóa học sinh nhiệt gọi là?",
+        "correctAnswer": "Tỏa nhiệt",
+        "incorrectAnswers": ["Thu nhiệt", "Trung hòa", "Oxy hóa"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2019/10/21/13/59/fire-4569510_1280.jpg"
+      }
+    ]
+  },
+  {
+    "id": "science_genetics",
+    "title": "Di Truyền Học",
+    "avatar": "https://cdn.pixabay.com/photo/2017/03/15/12/38/dna-2147302_1280.jpg",
+    "category": "Science",
+    "subcategory": "Genetics",
+    "description": "ADN, gen, đột biến và di truyền Mendel.",
+    "difficulty": "mixed",
+    "questions": [
+      {
+        "question": "Gen là gì?",
+        "correctAnswer": "Một đoạn ADN mang thông tin di truyền",
+        "incorrectAnswers": ["Protein", "Enzyme", "Tế bào"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2016/11/19/17/46/dna-1839581_1280.jpg"
+      },
+      {
+        "question": "Ai là cha đẻ của di truyền học?",
+        "correctAnswer": "Gregor Mendel",
+        "incorrectAnswers": ["Watson & Crick", "Darwin", "Leeuwenhoek"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2015/09/30/13/33/monk-965336_1280.jpg"
+      },
+      {
+        "question": "ADN có cấu trúc gì?",
+        "correctAnswer": "Xoắn kép",
+        "incorrectAnswers": ["Thẳng", "Hình tròn", "Gấp nếp"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2013/07/12/15/45/dna-150195_1280.png"
+      },
+      {
+        "question": "ADN nằm ở đâu trong tế bào?",
+        "correctAnswer": "Nhân tế bào",
+        "incorrectAnswers": ["Tế bào chất", "Ty thể", "Màng tế bào"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2016/11/19/17/46/dna-1839581_1280.jpg"
+      },
+      {
+        "question": "Nhiễm sắc thể có chức năng gì?",
+        "correctAnswer": "Mang thông tin di truyền",
+        "incorrectAnswers": ["Tạo năng lượng", "Vận chuyển protein", "Tổng hợp enzyme"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2023/06/20/15/20/science-8077439_1280.jpg"
+      },
+      {
+        "question": "A-T và G-C là gì?",
+        "correctAnswer": "Các cặp base trong ADN",
+        "incorrectAnswers": ["Axit amin", "Chất béo", "Protein"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2017/03/15/12/38/dna-2147302_1280.jpg"
+      },
+      {
+        "question": "Đột biến gen là gì?",
+        "correctAnswer": "Thay đổi trình tự ADN",
+        "incorrectAnswers": ["Tăng tế bào", "Chết tế bào", "Thay đổi màu mắt"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2020/04/21/03/16/covid-19-5074384_1280.jpg"
+      },
+      {
+        "question": "Cặp nhiễm sắc thể giới tính của nam là?",
+        "correctAnswer": "XY",
+        "incorrectAnswers": ["XX", "YY", "YX"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2017/03/15/12/38/dna-2147302_1280.jpg"
+      },
+      {
+        "question": "Quá trình sao chép ADN gọi là?",
+        "correctAnswer": "Replication",
+        "incorrectAnswers": ["Transcription", "Translation", "Mutation"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2016/11/19/17/46/dna-1839581_1280.jpg"
+      },
+      {
+        "question": "RNA có cấu trúc gì?",
+        "correctAnswer": "Chuỗi đơn",
+        "incorrectAnswers": ["Xoắn kép", "Tứ diện", "Vòng kép"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2016/11/19/17/46/dna-1839581_1280.jpg"
+      },
+      {
+        "question": "Ai phát hiện cấu trúc xoắn kép của ADN?",
+        "correctAnswer": "Watson & Crick",
+        "incorrectAnswers": ["Mendel", "Darwin", "Bohr"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2017/03/15/12/38/dna-2147302_1280.jpg"
+      },
+      {
+        "question": "A thay thế T trong RNA bằng?",
+        "correctAnswer": "U (Uracil)",
+        "incorrectAnswers": ["G", "C", "T vẫn giữ nguyên"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2018/06/08/22/43/rna-3462062_1280.jpg"
+      },
+      {
+        "question": "ADN được sao chép khi nào?",
+        "correctAnswer": "Trước khi tế bào phân chia",
+        "incorrectAnswers": ["Sau khi chết", "Khi đói", "Trong quá trình ngủ"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2020/02/07/14/01/bacteria-4826936_1280.jpg"
+      },
+      {
+        "question": "Một gen có thể tạo ra?",
+        "correctAnswer": "Protein",
+        "incorrectAnswers": ["Năng lượng", "Hormone", "Axit béo"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2018/01/03/21/35/molecule-3055971_1280.jpg"
+      },
+      {
+        "question": "Quá trình tổng hợp protein gọi là?",
+        "correctAnswer": "Translation",
+        "incorrectAnswers": ["Replication", "Mutation", "Oxidation"],
+        "timeLimit": 20,
+        "image": "https://cdn.pixabay.com/photo/2015/04/18/02/34/science-727872_1280.jpg"
+      }
+    ]
+  }
+]

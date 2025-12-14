@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Client/css/home.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Firebase -->
+
+</head>
+
+<body>
+    <header id="header">
+        <div class="flex justify-between" id="nav">
+            <button class="btn" id="home">Home</button>
+            <button class="btn" id="discovery">Discovery</button>
+            <button class="btn" id="profile">Profile</button>
+            <button class="btn" id="create">Create</button>
+        </div>
+        <!-- Tìm kiếm quiz & khóa học -->
+        <input type="text" placeholder=" Tìm kiếm quiz & courses" id="search-bar">
+        <button class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </header>
+    <div id="container">
+        <div class="short-intro">
+            <h1 class="intro-heading">Mô tả về QuizLab</h1>
+            <p class="info-text">Website học tập QuizLab là nơi bạn khám phá kiến thức thông qua những bộ câu hỏi tương
+                tác thuộc nhiều chủ đề như Khoa học, Địa lý, Lịch sử và hơn thế nữa.</p>
+        </div>
+        <div class="short-intro" id="function">
+            <h1 class="intro-heading">Các tính năng cơ bản</h1>
+            <p class="info-text">Bạn chỉ cần chọn chủ đề, trả lời các câu hỏi trong thời gian giới hạn và xem kết quả
+                ngay sau khi hoàn thành. Mọi thao tác đều đơn giản và trực quan.</p>
+        </div>
+        <div class="short-intro" id="benefits">
+            <h1 class="intro-heading">Lợi ích của QuizLab</h1>
+            <p class="info-text">Học thông qua quiz giúp bạn ghi nhớ nhanh hơn, tăng sự tập trung và khiến việc học trở
+                nên nhẹ nhàng, không nhàm chán.</p>
+
+        </div>
+        <div id="begin">
+            <h1 class="intro-heading">Bạn còn chờ đợi gì nữa?</h1>
+            <button class="start">Bắt đầu ngay</button>
+        </div>
+
+        <div class="short-intro">
+            <h1 class="intro-heading">Dành cho bạn</h1>
+            <div id="weekly"></div>
+            <!-- <h1 class="intro-heading">Bạn còn chờ đợi gì nữa?</h1> -->
+
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+    <script src="/Client/javascript/firebaseConfig.js"></script>
+    <script src="/Client/javascript/home.js"></script>
+
+</body>
+
+</html>

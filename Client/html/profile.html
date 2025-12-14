@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+<link rel="stylesheet" href="/Client/css/profile.css">
+</head>
+<body>
+<header id="header">
+        <div class="flex justify-between" id="nav">
+            <button class="btn" id="home">Home</button>
+            <button class="btn" id="discovery">Discovery</button>
+            <button class="btn" id="profile">Profile</button>
+            <button class="btn" id="create">Create</button>
+        </div>
+        <!-- Tìm kiếm quiz & khóa học -->
+        <input type="text" placeholder=" Tìm kiếm quiz & courses" id="search-bar">
+        <button class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </header>
+<div class="profile-container">
+
+  <!-- LEFT: Thông tin cá nhân -->
+  <div class="profile-left">
+    <div class="avatar"></div>
+
+    <h2 class="username">Nguyễn Văn A</h2>
+    <p id="current-role" class="role">Học sinh</p>
+
+    <label>Email</label>
+    <input type="email" id="email">
+
+    <label>Tên hiển thị</label>
+    <input type="text" id="username">
+
+    <button class="save-btn">Lưu thay đổi</button>
+  </div>
+
+  <!-- RIGHT: Thống kê + Quiz -->
+  <div class="profile-right">
+
+    <!-- Thống kê -->
+    <div class="stats">
+      <div  id="quiz-played" class="stat-box">
+        <h3 id="numberQ"></h3>
+        <p>Quiz đã chơi</p>
+      </div>
+      <div class="stat-box">
+        <h3 id="score-sum"></h3>
+        <p>Tổng điểm</p>
+      </div>
+      
+    </div>
+
+    <!-- Quiz đã chơi -->
+    <div class="section">
+      <h3 style="margin:0">Quiz đã chơi</h3>  
+        <div id="quiz-contain" class="quiz-contain">
+    
+      </div>
+    </div>
+
+    <!-- Quiz đã tạo (GIÁO VIÊN) -->
+    <div class="section">
+      <h3>Quiz đã tạo (Giáo viên)</h3>
+
+      <div id="quiz-item-teacher" class="quiz-item-teachers">
+      </div>
+
+
+  </div>
+</div>
+ <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+    <script src="/Client/javascript/firebaseConfig.js"></script>
+    <script src="/Client/javascript/profile.js"></script>
+
+</body>
+</html>

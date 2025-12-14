@@ -1,0 +1,214 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #7b2ff7, #0ce8f1);
+  padding: 40px;
+  padding: 0;
+}
+/* header */
+#header {
+    background-color: #4ee0b4;
+    height: 80px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* NAVIGATION */
+#nav {
+    display: flex;
+    gap: 20px;
+}
+
+/* BUTTON NAV */
+.btn {
+    width: 150px;
+    height: 50px;
+    background: linear-gradient(135deg, #964cfd, #004CFF);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+
+
+
+
+#search-bar {
+    border-radius: 10px;
+    width: 350px;
+    height: 45px;
+    font-size: 20px;
+    padding-left: 15px;
+    border: none;
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.25);
+}
+
+
+.search {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    font-size: 23px;
+    background: white;
+    cursor: pointer;
+    transition: 0.25s;
+    position: relative;
+    right: 140px;
+}
+
+.search:hover {
+    transform: scale(1.1);
+    background: #f2f2f2;
+}
+/* content */
+
+.profile-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* LEFT */
+.profile-left {
+  width: 300px;
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #ddd;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.username {
+  margin: 5px 0;
+}
+
+.role {
+  color: #6a1bff;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.profile-left label {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.profile-left input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.save-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #7b2ff7, #0ce8f1);
+  border: none;
+  color: white;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* RIGHT */
+.profile-right {
+  flex: 1;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-box {
+  flex: 1;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.stat-box h3 {
+  font-size: 32px;
+  margin: 0;
+  color: #6a1bff;
+}
+
+/* SECTION */
+.section {
+  margin-top: 30px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.section h3 {
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* QUIZ ITEM */
+.quiz-contain{
+  display: flex;
+  flex-direction: column;
+}
+.quiz-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.quiz-item:last-child {
+  border-bottom: none;
+}
+
+.quiz-item-teacher {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.edit-btn {
+  background: #6a1bff;
+  color: white;
+  border: none;
+  padding: 6px 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  bottom: 10px;
+}

@@ -1,0 +1,84 @@
+[
+{
+  "id": "communication_skills",
+  "title": "Kỹ Năng Giao Tiếp Hiệu Quả",
+  "category": "Skills",
+  "subcategory": "Communication",
+  "description": "Khám phá những kỹ năng giao tiếp quan trọng giúp bạn thành công trong công việc và cuộc sống.",
+  "difficulty": "mixed",
+  "avatar": "/mnt/data/communication_avatar.png",
+  "questions": [
+    {
+      "question": "Kỹ năng nào giúp bạn lắng nghe người khác một cách chủ động?",
+      "correctAnswer": "Lắng nghe chủ động",
+      "incorrectAnswers": ["Nói nhiều hơn", "Ngắt lời để giải thích", "Đọc sách"],
+      "timeLimit": 20
+     
+    },
+    {
+      "question": "Kỹ năng giao tiếp phi ngôn ngữ quan trọng nhất là gì?",
+      "correctAnswer": "Ngôn ngữ cơ thể",
+      "incorrectAnswers": ["Viết email", "Sử dụng từ ngữ phức tạp", "Đọc báo cáo"],
+      "timeLimit": 20
+    
+    },
+    {
+      "question": "Kỹ năng nào giúp bạn truyền đạt ý tưởng rõ ràng và dễ hiểu?",
+      "correctAnswer": "Kỹ năng thuyết trình",
+      "incorrectAnswers": ["Kỹ năng viết luận", "Kỹ năng vẽ tranh", "Kỹ năng tính toán"],
+      "timeLimit": 20,
+      "image": "https://picsum.photos/id/1030/600/400"
+    },
+    {
+      "question": "Kỹ năng nào giúp bạn giải quyết xung đột hiệu quả?",
+      "correctAnswer": "Thương lượng và đàm phán",
+      "incorrectAnswers": ["Tránh xung đột", "La hét để chiến thắng", "Im lặng hoàn toàn"],
+      "timeLimit": 20,
+      "image": "https://picsum.photos/id/1040/600/400"
+    },
+    {
+      "question": "Kỹ năng nào giúp bạn xây dựng mối quan hệ bền vững?",
+      "correctAnswer": "Đồng cảm và thấu hiểu",
+      "incorrectAnswers": ["Chỉ nói về bản thân", "Phán xét người khác", "Luôn đúng"],
+      "timeLimit": 20,
+      "image": "https://picsum.photos/id/1050/600/400"
+    },
+    {
+      "question": "Kỹ năng giao tiếp qua văn bản quan trọng là gì?",
+      "correctAnswer": "Viết email chuyên nghiệp",
+      "incorrectAnswers": ["Viết tin nhắn ngắn", "Đăng status mạng xã hội", "Viết nhật ký cá nhân"],
+      "timeLimit": 20,
+      "image": "https://picsum.photos/id/1060/600/400"
+    },
+    {
+      "question": "Kỹ năng nào giúp bạn duy trì sự tự tin khi nói trước đám đông?",
+      "correctAnswer": "Kỹ năng diễn đạt tự tin",
+      "incorrectAnswers": ["Nói quá nhanh", "Im lặng hoàn toàn", "Đọc nguyên văn tài liệu"],
+      "timeLimit": 20,
+      "image": "https://picsum.photos/id/1070/600/400"
+    },
+    {
+      "question": "Trong giao tiếp, phản hồi tích cực giúp gì?",
+      "correctAnswer": "Khích lệ và cải thiện hiệu quả giao tiếp",
+      "incorrectAnswers": ["Gây áp lực cho người khác", "Phớt lờ ý kiến", "Chỉ trích mọi người"],
+      "timeLimit": 20,
+      "image": "https://picsum.photos/id/1080/600/400"
+    },
+    {
+      "question": "Kỹ năng nào giúp bạn hiểu rõ cảm xúc của người khác?",
+      "correctAnswer": "Nhận diện cảm xúc",
+      "incorrectAnswers": ["Bình luận không liên quan", "Cư xử theo ý mình", "Tránh tiếp xúc mắt"],
+      "timeLimit": 20,
+      "image": "https://picsum.photos/id/1090/600/400"
+    },
+    {
+      "question": "Kỹ năng nào giúp bạn trình bày ý kiến mà không gây mâu thuẫn?",
+      "correctAnswer": "Giao tiếp thuyết phục",
+      "incorrectAnswers": ["Hét to để ép buộc", "Lờ đi ý kiến người khác", "Im lặng hoàn toàn"],
+      "timeLimit": 20,
+      "image": "https://picsum.photos/id/1100/600/400"
+    }
+  ]
+}
+
+]
