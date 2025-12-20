@@ -10,9 +10,9 @@ body {
 }
 
 .question-card {
-    width: 650px;
-    height: 500px;
-    background: #baf055;
+    width: 950px;
+    height: 550px;
+    background: #F8FAFC;
     border-radius: 20px;
     position: relative;
     margin-top: 70px;
@@ -22,39 +22,40 @@ body {
     font-size: 35px;
     font-weight: bold;
     margin-left: 20px;
-    color: #F3EFFF;
+    color: #0F172A
 }
 
 .ans-container {
     display: grid;
-    grid-template-columns: 300px 300px;
+    grid-template-columns: 450px 450px;
     margin-left: 40px;
     margin-top: 10px;
 }
 
 .answer {
-    width: 250px;
-    height: 80px;
-    background: linear-gradient(135deg, #ff00cc, #333399);
-    margin-top: 40px;
-    font-size: 25px;
-    border-radius: 10px;
+    width: 400px;
+    height: 100px;
+    background: #6366F1;
     color: white;
+    margin-top: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+
 }
 
 #timer-text {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
+    background: #d0dafc;
+    color: #4338CA;
     font-weight: bold;
     padding-top: 12px;
     border-radius: 50%;
     width: 80px;
     height: 60px;
     font-size: 20px;
-    margin-left: 30%;
+    margin-left: 35%;
     text-align: center;
     position: relative;
-    left: 80px;
+    left: 88px;
     top: 20px;
 }
 
@@ -90,6 +91,7 @@ body {
         opacity: 1;
     }
 }
+
 /* TLN */
 .short-input {
     width: 70%;
@@ -100,6 +102,7 @@ body {
     border-radius: 10px;
     font-size: 20px;
 }
+
 .submit-ans {
     width: 70%;
     height: 45px;

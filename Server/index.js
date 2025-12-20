@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
   res.send("Send post request to /upload to upload image");
 });
 
-app.post("/upload", upload.single("image"), (req, res) => {
+app.post("/upload", upload.single("file"), (req, res) => {
   cloudinary.uploader.upload(req.file.path, (err, result) => {
     if (err) {
       console.log(err);

@@ -92,7 +92,7 @@ async function loadQuestion() {
         }
         //đáp án
         //xử lý với tln
-        if (qData.incorrectAnswers) {
+        if (!qData.incorrectAnswers) {
             //tạo ra ô trả lời
             let shortInput = document.createElement("input")
             shortInput.type = "text"

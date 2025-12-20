@@ -1,80 +1,128 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta charset="UTF-8">
-<title>Profile</title>
-<link rel="stylesheet" href="/Client/css/profile.css">
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <link rel="stylesheet" href="/Client/css/profile.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-<header id="header">
-        <div class="flex justify-between" id="nav">
-            <button class="btn" id="home">Home</button>
-            <button class="btn" id="discovery">Discovery</button>
-            <button class="btn" id="profile">Profile</button>
-            <button class="btn" id="create">Create</button>
+  <div class="logo-container">
+    <img src="/Client/data/Screenshot 2025-12-15 213727.jpg" alt="">
+  </div>
+  <header id="header">
+
+    <div class="flex justify-between" id="nav">
+      <button class="btn" id="home">Home</button>
+      <button class="btn" id="discovery">Discovery</button>
+      <button class="btn" id="profile">Profile</button>
+      <button onclick="window.location.href = 'create.html'" class="btn" id="create">Create</button>
+    </div>
+    <!-- Tìm kiếm quiz & khóa học -->
+    <input type="text" placeholder=" Tìm kiếm quiz & courses" id="search-bar">
+    <button class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </header>
+  <div class="profile-container">
+
+    <!-- LEFT: Thông tin cá nhân -->
+    <div class="profile-left">
+      <div id="avatar-input"class="avatar"></div>
+      <input type="file" name="" id="chooseImg" hidden>
+      <h2 class="username" id="name">Nguyễn Văn A</h2>
+      <p id="current-role" class="role">Học sinh</p>
+
+      <label>Email</label>
+      <input type="email" id="email">
+
+      <label>Tên hiển thị</label>
+      <input type="text" id="username">
+
+      <button id="save-btn" class="save-btn">Lưu thay đổi</button>
+    </div>
+
+    <!-- RIGHT: Thống kê + Quiz -->
+    <div class="profile-right">
+
+      <!-- Thống kê -->
+      <div class="stats">
+        <div id="quiz-played" class="stat-box">
+          <h3 id="numberQ"></h3>
+          <p>Quiz đã chơi</p>
         </div>
-        <!-- Tìm kiếm quiz & khóa học -->
-        <input type="text" placeholder=" Tìm kiếm quiz & courses" id="search-bar">
-        <button class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </header>
-<div class="profile-container">
+        <div class="stat-box">
+          <h3 id="score-sum"></h3>
+          <p>Tổng điểm</p>
+        </div>
 
-  <!-- LEFT: Thông tin cá nhân -->
-  <div class="profile-left">
-    <div class="avatar"></div>
-
-    <h2 class="username">Nguyễn Văn A</h2>
-    <p id="current-role" class="role">Học sinh</p>
-
-    <label>Email</label>
-    <input type="email" id="email">
-
-    <label>Tên hiển thị</label>
-    <input type="text" id="username">
-
-    <button class="save-btn">Lưu thay đổi</button>
-  </div>
-
-  <!-- RIGHT: Thống kê + Quiz -->
-  <div class="profile-right">
-
-    <!-- Thống kê -->
-    <div class="stats">
-      <div  id="quiz-played" class="stat-box">
-        <h3 id="numberQ"></h3>
-        <p>Quiz đã chơi</p>
       </div>
-      <div class="stat-box">
-        <h3 id="score-sum"></h3>
-        <p>Tổng điểm</p>
-      </div>
-      
-    </div>
 
-    <!-- Quiz đã chơi -->
-    <div class="section">
-      <h3 style="margin:0">Quiz đã chơi</h3>  
+      <!-- Quiz đã chơi -->
+      <div class="section">
+        <h3 style="margin:0">Quiz đã chơi</h3>
         <div id="quiz-contain" class="quiz-contain">
-    
+
+        </div>
+      </div>
+
+      <!-- Quiz đã tạo (GIÁO VIÊN) -->
+      <div class="section">
+        <h3>Quiz đã tạo (Giáo viên)</h3>
+
+        <div id="quiz-item-teacher" class="quiz-item-teachers">
+        </div>
+
+
       </div>
     </div>
-
-    <!-- Quiz đã tạo (GIÁO VIÊN) -->
-    <div class="section">
-      <h3>Quiz đã tạo (Giáo viên)</h3>
-
-      <div id="quiz-item-teacher" class="quiz-item-teachers">
-      </div>
-
-
   </div>
-</div>
- <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
-    <script src="/Client/javascript/firebaseConfig.js"></script>
-    <script src="/Client/javascript/profile.js"></script>
+  <!-- footer -->
+   <footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-brand">
+            <h2>Quiz<span>Lab</span></h2>
+            <p>Học tập thông minh hơn thông qua các bộ câu hỏi tương tác.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Khám phá</h4>
+            <a href="#">Trang chủ</a>
+            <a href="#">Quiz</a>
+            <a href="#">Tạo quiz</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Dành cho</h4>
+            <a href="#">Giáo viên</a>
+            <a href="#">Học sinh</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Hỗ trợ</h4>
+            <a href="#">Giới thiệu</a>
+            <a href="#">Điều khoản</a>
+            <a href="#">Liên hệ</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 QuizLab. Learn by playing.
+    </div>
+</footer>
+
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <script src="/Client/javascript/firebaseConfig.js"></script>
+  <script src="/Client/javascript/profile.js"></script>
 
 </body>
+
 </html>

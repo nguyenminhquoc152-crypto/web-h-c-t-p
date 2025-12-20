@@ -159,19 +159,25 @@ document.getElementById("home").addEventListener("click", function () {
                 nên nhẹ nhàng, không nhàm chán.</p>
                 
         </div>
+        <div class="short-intro" id="aim">
+            <h1 class="intro-heading">Mục tiêu của QuizLab</h1>
+            <p class="info-text">QuizLab được tạo ra nhằm giúp việc học trở nên thú vị hơn thông qua hình thức câu hỏi
+                tương tác. Chúng tôi mong muốn biến mỗi bài học thành một trải nghiệm vui vẻ, dễ nhớ và hiệu quả.</p>
+        </div>
+        <div class="short-intro" id="learnnplay">
+            <h1 class="intro-heading">Học mà chơi - chơi mà học</h1>
+            <p class="info-text">
+                QuizLab kết hợp giữa học tập và trò chơi, tạo cảm giác hứng thú như đang tham gia một game trí tuệ thay
+                vì học lý thuyết khô khan.</p>
+        </div>
         <div id="begin">
             <h1 class="intro-heading">Bạn còn chờ đợi gì nữa?</h1>
             <button class="start">Bắt đầu ngay</button>
         </div>
 
-        <div class="short-intro">
-            <h1 class="intro-heading">Dành cho bạn</h1>
-            <div id="weekly"></div>
-            <!-- <h1 class="intro-heading">Bạn còn chờ đợi gì nữa?</h1> -->
-
-        </div>
+      
     </div>`
-    fetchPokemons();
+    // fetchPokemons();
 })
 
 
