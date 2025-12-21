@@ -51,3 +51,34 @@ submit.addEventListener("click", function (e) {
         });
 })
 
+document.getElementById('google-btn').addEventListener('click', () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  auth.signInWithPopup(provider)
+    .then(async (result) => {
+      const user = result.user;
+
+      const userRef = firebase.firestore().collection("users").doc(user.uid);
+      const docSnap = await userRef.get();
+
+      if (!docSnap.exists) {
+        await userRef.set({
+          id: user.uid,                 
+          email: user.email,
+          username: user.displayName || "Google User",
+          role: "student",
+          photoURL: user.photoURL,
+          provider: "google",
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+      }
+
+      alert(`Đăng nhập thành công! Chào ${user.displayName}`);
+      window.location.href = "home.html";
+    })
+    .catch(error => {
+      alert("Lỗi đăng nhập bằng Google: " + error.message);
+    });
+});
+
+

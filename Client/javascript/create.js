@@ -1,3 +1,7 @@
+// let date = document.getElementById("date")
+// date.innerText = new Date().toLocaleDateString();
+
+
 // ================= PARAMS =================
 const params = new URLSearchParams(window.location.search);
 const isEdit = params.get("edit") === "true";
@@ -6,7 +10,7 @@ const quizId = params.get("id");
 let add = document.getElementById("add");
 let save = document.getElementById("save");
 let questionContainer = document.getElementById("questions");
-
+let avatarUrl = "";
 let currentUID = null;
 let count = 0;
 let createContainer = document.getElementById("create-container");
@@ -15,7 +19,7 @@ auth.onAuthStateChanged(user => {
   if (user) currentUID = user.uid;
 });
 
-// ================= INIT =================
+
 createQuestions();
 
 if (isEdit && quizId) {
@@ -36,8 +40,10 @@ function EditQuiz(quizId) {
     let editDes = document.getElementById("quiz-des");
     let editCat = document.getElementById("quiz-category");
     let editPermit = document.getElementById("permission");
+    let editAvatar = document.getElementById("thumbnail")
 
     editTitle.value = quiz.title;
+    editAvatar.style.backgroundImage = `url(${quiz.avatar})`
     editDes.value = quiz.description;
     editCat.value = quiz.realCategory;
     editPermit.value = quiz.permission;
@@ -50,7 +56,7 @@ function EditQuiz(quizId) {
 
     saveChange.onclick = async function () {
       let updatedQuestions = [];
-
+      //lấy dữ liệu sau khi chỉnh sửa
       document.querySelectorAll(".question-card").forEach(card => {
         let question = card.querySelector(".question-text").value;
         let type = card.querySelector(".type").value;
@@ -94,7 +100,8 @@ function EditQuiz(quizId) {
         description: editDes.value,
         realCategory: editCat.value,
         permission: editPermit.value,
-        questions: updatedQuestions
+        questions: updatedQuestions,
+        avatar: avatarUrl
       });
 
       // UPDATE USERS
@@ -124,7 +131,7 @@ async function updateQuizInUser(editTitle, editDes, editCat, editPermit, updated
     category: editCat.value,
     questionsData: updatedQuestions,
     permission: editPermit.value,
-    avatar: createdQuiz[index].avatar
+    avatar: avatarUrl
   };
 
   await userRef.update({ createdQuiz });
@@ -159,7 +166,30 @@ function renderQuestions(questions) {
 
 // tạo mới
 function createQuestions() {
+  let thumnailInput = document.getElementById("thumbnail-input");
+  thumnailInput.addEventListener("change", function () {
+    let file = thumnailInput.files[0];
+    if (file) {
+      const formData = new FormData();
 
+      formData.append("image", file);
+      fetch("http://localhost:3000/upload", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("url image upload success to cloudinary", result)
+          avatarUrl = result.data.secure_url;
+          document.querySelector(".thumbnail-preview").style.backgroundImage = `url(${avatarUrl})`
+          console.log("url", result.data.secure_url)
+
+        })
+        .catch((error) => {
+          console.error("Error uploading image:", error);
+        });
+    }
+  })
   add.addEventListener("click", function () {
     count++;
     let divQ = document.createElement("div");
@@ -203,10 +233,10 @@ function createQuestions() {
     function renderOption(type) {
       if (type === "mcq") {
         optionBox.innerHTML = `
-          <label>A</label><input class="ans" />
-          <label>B</label><input class="ans" />
-          <label>C</label><input class="ans" />
-          <label>D</label><input class="ans" />
+          <label></label><input class="ans"  placeholder="Nhập đáp án A"/>
+          <label></label><input class="ans" placeholder="Nhập đáp án B" />
+          <label></label><input class="ans" placeholder="Nhập đáp án C" />
+          <label></label><input class="ans" placeholder="Nhập đáp án D"/>
           <select class="correct">
             <option>A</option><option>B</option><option>C</option><option>D</option>
           </select>`;
@@ -235,7 +265,7 @@ function createQuestions() {
     };
   });
   let save = document.getElementById("save")
- //LẤY DỮ LIỆU LƯU LÊN FIRESTORE
+  //LẤY DỮ LIỆU LƯU LÊN FIRESTORE
   save.addEventListener("click", async function () {
 
     let title = document.getElementById("quiz-title").value
@@ -317,7 +347,7 @@ function createQuestions() {
               category: category,
               questionsData: questions,
               permission: permit,
-              avatar: "https://img.lovepik.com/photo/50115/2399.jpg_wh860.jpg"
+              avatar: avatarUrl
             }
             createdQuiz.push(createdObject)
             db.collection("users").doc(currentUID).update({
@@ -350,7 +380,7 @@ function createQuestions() {
         category: "OTHERS",
         questions: questions,
         permission: permit,
-        avatar: "https://img.lovepik.com/photo/50115/2399.jpg_wh860.jpg",
+        avatar: avatarUrl,
 
         // 🟢 Lưu UID người tạo quiz
         createdBy: currentUID,
@@ -372,6 +402,10 @@ function createQuestions() {
 //chuyển đổi giữa các trang
 let toHome = document.getElementById("home")
 let toDiscovery = document.getElementById("discovery")
+toDiscovery.addEventListener("click", function () {
+  localStorage.setItem("go", "discovery");
+window.location.href = "/Client/html/home.html";
+})
 let toProfile = document.getElementById("profile")
 toHome.addEventListener("click", function () {
   window.location.href = "home.html"
@@ -379,12 +413,12 @@ toHome.addEventListener("click", function () {
 
 toProfile.addEventListener("click", function () {
   window.location.href = "profile.html"
-}) 
+})
 
 
 
-// =============================
-const collections = ["OTHERS", "Science", "Geography","History","Life skills"]; 
+// // =============================
+const collections = ["OTHERS", "Science", "Geography", "History", "Life skills"];
 // thêm collection khác nếu có
 
 let allQuiz = []; // chứa toàn bộ quiz
@@ -406,8 +440,9 @@ async function loadAllQuiz() {
       });
     });
   }
+  console.log(allQuiz)
 
-  renderQuiz(allQuiz);
+  // renderQuiz(allQuiz);
 }
 
 // gọi khi vào trang
@@ -416,38 +451,68 @@ loadAllQuiz();
 
 document.getElementById("search-bar").addEventListener("input", function (e) {
   const keyword = e.target.value.trim().toLowerCase();
-
-  if (keyword === "") {
-    renderQuiz(allQuiz);
-    return;
-  }
+  document.getElementById("search-icon").addEventListener("click",function(){
+  // if (keyword === "") {
+  //   renderQuiz(allQuiz);
+  //   return;
+  // }
 
   const result = allQuiz.filter(q =>
     q.title && q.title.toLowerCase().includes(keyword)
   );
 
   renderQuiz(result);
+})
 });
 
 
 function renderQuiz(list) {
-  const box = document.createElement("div")
-  box.innerHTML = "";
+
+  // box.innerHTML = "";
   console.log(list)
   if (list.length === 0) {
-    box.innerHTML = "<p>Không tìm thấy quiz</p>";
+    newContainer.innerHTML = "<p>Không tìm thấy quiz</p>";
     return;
   }
-  createContainer.innerHTML ="";
-
+  createContainer.style.display = "none";
+  let newContainer = document.getElementById("search-container")
   list.forEach(q => {
-    box.innerHTML += `
-      <div class="quiz-card" style="border:1px solid #ccc; padding:10px; margin:10px 0">
-        <h3>${q.title}</h3>
-        <p>${q.description || ""}</p>
-        <small>Collection: ${q.collection}</small>
-      </div>
-    `;
+    //tạo thẻ chứa quiz
+    let box = document.createElement("div");
+    box.className = "quiz-box"
+    newContainer.appendChild(box);
+    //ảnh đại diện
+    let quizAvatar = document.createElement("img");
+    quizAvatar.className = "quiz-avatar"
+    quizAvatar.src = q.avatar || "https://via.placeholder.com/150";
+    box.appendChild(quizAvatar);
+    //tiêu đề
+    let quizTitle = document.createElement("h3");
+    quizTitle.className = "quiz-title"
+    quizTitle.innerText = q.title;
+    box.appendChild(quizTitle);
+    //số câu hỏi
+    let quizQuestionCount = document.createElement("p");
+    quizQuestionCount.className = "quiz-question-count"
+    quizQuestionCount.innerText = `Số câu hỏi: ${q.questions.length}`;
+    box.appendChild(quizQuestionCount);
+    //tác giả
+    let quizAuthor = document.createElement("p");
+    quizAuthor.className = "quiz-author"
+    quizAuthor.innerText = `Tác giả: ${q.createdBy || "Ẩn danh"}`;
+    box.appendChild(quizAuthor);
+    //nút play
+    let playBtnSearch = document.createElement("button");
+    playBtnSearch.className = "play-btn-search"
+    playBtnSearch.innerHTML = '<i class="fa-solid fa-play"></i>';
+    playBtnSearch.addEventListener("click", function () {
+      localStorage.setItem("title", q.title)
+      localStorage.setItem("quizId", q.id)
+      localStorage.setItem("category", q.category)
+      window.location.href = "/Client/html/game.html"
+    });
+    box.appendChild(playBtnSearch)
+
   });
 }
 

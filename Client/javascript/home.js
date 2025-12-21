@@ -1,10 +1,21 @@
-
+// let date = document.getElementById("date")
+// date.innerText = new Date().toLocaleDateString();
 let container = document.getElementById("container")
-
+ let newContainer = document.getElementById("search-container");
 
 let arr = ["Science", "Geography", "Life skills"]
 
+let currentUID = null;
 
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        currentUID = user.uid;
+        console.log("UID của người dùng:", currentUID);
+    } else {
+        currentUID = null;
+        console.log("Không có ai đăng nhập");
+    }
+});
 
 async function quizDisplay(collection, bigtitle, contain, avt, homeq, des, auth, play, storage1, storage2, heading) {
 
@@ -50,12 +61,20 @@ async function quizDisplay(collection, bigtitle, contain, avt, homeq, des, auth,
                 //mô tả 
                 let descript = document.createElement("p")
                 descript.className = des
-                descript.innerText = "Số câu hỏi: 10"
+                descript.innerText = `Số câu hỏi: ${quiz.questions.length}`
                 card.appendChild(descript)
                 //tác giả
                 let author = document.createElement("p")
                 author.className = auth
-                author.innerText = "Tác giả: QuizLab"
+                db.collection("users").doc(quiz.createdBy).get().then(doc =>{
+                    if(doc.exists){
+                        author.innerText = `Tác giả: ${doc.data().username}`
+                    }
+                    else {
+                        author.innerText = `Tác giả: Ẩn danh`
+                    }
+                })
+               
                 card.appendChild(author)
                 //nút play
                 let playBtn = document.createElement("button")
@@ -90,6 +109,22 @@ async function quizDisplay(collection, bigtitle, contain, avt, homeq, des, auth,
                     detailDescribe.className = "detail-quiz-description"
                     detailDescribe.innerText = quiz.description
                     detail.appendChild(detailDescribe)
+                    //số câu hỏi
+                    let detailQuestions = document.createElement("p")
+                    detailQuestions.className = "detail-quiz-questions"
+                    detailQuestions.innerText = `Số câu hỏi: ${quiz.questions.length}`
+                    detail.appendChild(detailQuestions)
+                    //tác giả
+                    let detailAuthor = document.createElement("p")
+                    detailAuthor.className = "detail-quiz-author"
+                    db.collection("users").doc(quiz.createdBy).get().then(doc =>{
+                        if(doc.exists){
+                            detailAuthor.innerText = `Tác giả: ${doc.data().username}`}
+                            else {
+                                detailAuthor.innerText = `Tác giả: Ẩn danh`
+                            }
+                        })
+                        detail.appendChild(detailAuthor)
                     //nút play
                     let playBtnD = document.createElement("button")
                     playBtnD.className = "detail-play"
@@ -101,11 +136,11 @@ async function quizDisplay(collection, bigtitle, contain, avt, homeq, des, auth,
                         localStorage.setItem("category", quiz.category)
                         window.location.href = "/Client/html/game.html"
                     })
-                    // leaderboard
-                    let leader = document.createElement("button")
-                    leader.className = "leaderboard"
-                    leader.innerText = "Leaderboard"
-                    detail.appendChild(leader)
+                    // // leaderboard
+                    // let leader = document.createElement("button")
+                    // leader.className = "leaderboard"
+                    // leader.innerText = "Leaderboard"
+                    // detail.appendChild(leader)
                 })
             })
             if (storage1 === "science-container") {
@@ -133,15 +168,18 @@ async function quizDisplay(collection, bigtitle, contain, avt, homeq, des, auth,
 }
 
 document.getElementById("discovery").addEventListener("click", function () {
+    // window.location.href = "/Client/html/home.html?page=discovery";
     container.innerHTML = ""
     for (let i = 0; i < arr.length; i++) {
         quizDisplay(arr[i], arr[i], "containing-dis", "avatar-dis", "homeq-title-dis", "descript-dis", "author", "play-btn", "science-container", "science-quiz-container", "big-title")
     }
     quizDisplay("History", "History", "containing-dis2", "avatar-dis2", "homeq-title-dis2", "descript-dis2", "author2", "play-btn2", "history-container", "history-quiz-container", "big-title2")
-    quizDisplay("OTHERS", "Others", "containing-dis2", "avatar-dis2", "homeq-title-dis2", "descript-dis2", "author2", "play-btn2", "history-container", "history-quiz-container", "big-title2")
+    quizDisplay("OTHERS", "Others", "containing-dis3", "avatar-dis3", "homeq-title-dis3", "descript-dis3", "author3", "play-btn3", "other-container", "other-quiz-container", "big-title3")
     // quizDisplay2("History")
 })
 document.getElementById("home").addEventListener("click", function () {
+    container.style.display = "block";
+    newContainer.innerHTML = ""
     container.innerHTML = ` <div id="container">
         <div class="short-intro">
             <h1 class="intro-heading">Mô tả về QuizLab</h1>
@@ -170,41 +208,24 @@ document.getElementById("home").addEventListener("click", function () {
                 QuizLab kết hợp giữa học tập và trò chơi, tạo cảm giác hứng thú như đang tham gia một game trí tuệ thay
                 vì học lý thuyết khô khan.</p>
         </div>
-        <div id="begin">
-            <h1 class="intro-heading">Bạn còn chờ đợi gì nữa?</h1>
-            <button class="start">Bắt đầu ngay</button>
-        </div>
+   
 
       
     </div>`
-    // fetchPokemons();
+  let loginBtn = document.createElement("div");
+  loginBtn.id = "begin"
+  loginBtn.innerHTML = ` <h1 class="intro-heading">Bạn còn chờ đợi gì nữa?</h1>
+            <button  id="startLogin" class="start">Bắt đầu ngay</button>`
+        if(!currentUID){
+            container.appendChild(loginBtn)
+        }
+document.getElementById("startLogin").addEventListener("click", function(){
+    window.location.href = "/Client/html/login.html"
+})
 })
 
 
 
-// addDoc(collection(db, "Science"), {
-//   name: "Tokyo",
-//   country: "Japan"
-// })
-// .then((docRef) => {
-//   console.log("Document written with ID: ", docRef.id);
-// })
-// .catch((error) => {
-//   console.error("Error adding document:", error);
-// })
-
-
-let currentUID = null;
-
-auth.onAuthStateChanged((user) => {
-    if (user) {
-        currentUID = user.uid;
-        console.log("UID của người dùng:", currentUID);
-    } else {
-        currentUID = null;
-        console.log("Không có ai đăng nhập");
-    }
-});
 let createBtn = document.getElementById("create")
 createBtn.addEventListener("click", function(){
     db.collection("users").doc(currentUID).get().then(doc => {
@@ -212,6 +233,9 @@ createBtn.addEventListener("click", function(){
         console.log(role)
         if(role == "teacher"){
             window.location.href = "/Client/html/create.html"
+        }
+        else if(!currentUID){
+            alert("Vui lòng đăng nhập để tạo quiz!")
         }
         else {
             alert("Đây là phần của giáo viên")
@@ -222,5 +246,114 @@ createBtn.addEventListener("click", function(){
 //qua trang profile
 let profile = document.getElementById("profile")
 profile.addEventListener("click",function(){
+    if(!currentUID){
+        alert("Vui lòng đăng nhập để vào trang profile!")
+        return;
+    }
     window.location.href = "/Client/html/profile.html"
 })
+//sự kiện search
+//xử lý sự kiện search
+// // =============================
+const collections = ["OTHERS", "Science", "Geography", "History", "Life skills"];
+// thêm collection khác nếu có
+
+let allQuiz = []; // chứa toàn bộ quiz
+
+// 
+async function loadAllQuiz() {
+  allQuiz = [];
+
+  for (let col of collections) {
+    const snapshot = await db.collection(col).get();
+
+    snapshot.forEach(doc => {
+      allQuiz.push({
+        id: doc.id,
+        collection: col,
+        ...doc.data()
+      });
+    });
+  }
+  console.log(allQuiz)
+
+  // renderQuiz(allQuiz);
+}
+
+// gọi khi vào trang
+loadAllQuiz();
+
+
+document.getElementById("search-bar").addEventListener("input", function (e) {
+  const keyword = e.target.value.trim().toLowerCase();
+  document.getElementById("search-icon").addEventListener("click",function(){
+  // if (keyword === "") {
+  //   renderQuiz(allQuiz);
+  //   return;
+  // }
+
+  const result = allQuiz.filter(q =>
+    q.title && q.title.toLowerCase().includes(keyword)
+  );
+
+  renderQuiz(result);
+})
+});
+ 
+
+function renderQuiz(list) {
+
+  newContainer.innerHTML = "";
+  // box.innerHTML = "";
+  console.log(list)
+  if (list.length === 0) {
+    newContainer.innerHTML = "<p>Không tìm thấy quiz</p>";
+    return;
+  }
+  document.getElementById("container").style.display = "none";
+
+  list.forEach(q => {
+    //tạo thẻ chứa quiz
+    let box = document.createElement("div");
+    box.className = "quiz-box"
+    newContainer.appendChild(box);
+    //ảnh đại diện
+    let quizAvatar = document.createElement("img");
+    quizAvatar.className = "quiz-avatar"
+    quizAvatar.src = q.avatar || "https://via.placeholder.com/150";
+    box.appendChild(quizAvatar);
+    //tiêu đề
+    let quizTitle = document.createElement("h3");
+    quizTitle.className = "quiz-title"
+    quizTitle.innerText = q.title;
+    box.appendChild(quizTitle);
+    //số câu hỏi
+    let quizQuestionCount = document.createElement("p");
+    quizQuestionCount.className = "quiz-question-count"
+    quizQuestionCount.innerText = `Số câu hỏi: ${q.questions.length}`;
+    box.appendChild(quizQuestionCount);
+    //tác giả
+    let quizAuthor = document.createElement("p");
+    quizAuthor.className = "quiz-author"
+    quizAuthor.innerText = `Tác giả: ${q.createdBy || "Ẩn danh"}`;
+    box.appendChild(quizAuthor);
+    //nút play
+    let playBtnSearch = document.createElement("button");
+    playBtnSearch.className = "play-btn-search"
+    playBtnSearch.innerHTML = '<i class="fa-solid fa-play"></i>';
+    playBtnSearch.addEventListener("click", function () {
+      localStorage.setItem("title", q.title)
+      localStorage.setItem("quizId", q.id)
+      localStorage.setItem("category", q.category)
+      window.location.href = "/Client/html/game.html"
+    });
+    box.appendChild(playBtnSearch)
+
+  });
+}
+
+
+if (localStorage.getItem("go") === "discovery") {
+  localStorage.removeItem("go");
+  document.getElementById("discovery").click();
+}

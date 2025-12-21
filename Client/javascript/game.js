@@ -31,13 +31,13 @@ auth.onAuthStateChanged((user) => {
 
 //nhập tên
 let namep = null;
-let nameInput = document.createElement("input")
-if (!currentUID) {
-    nameInput.type = "text"
-    nameInput.className = "name-input"
-    nameInput.placeholder = "Enter your name"
-    qContainer.appendChild(nameInput)
-}
+// let nameInput = document.createElement("input")
+// if (!currentUID) {
+//     nameInput.type = "text"
+//     nameInput.className = "name-input"
+//     nameInput.placeholder = "Enter your name"
+//     qContainer.appendChild(nameInput)
+// }
 //bắt đầu
 let start = document.createElement("button")
 start.className = "start"
@@ -45,8 +45,8 @@ start.innerText = "Bắt đầu chơi"
 qContainer.appendChild(start)
 start.addEventListener("click", function () {
     start.style.display = "none"
-    nameInput.style.display = "none"
-    namep = nameInput.value
+    // // nameInput.style.display = "none"
+    // namep = nameInput.value
     bgm.play();
     loadQuestion()
 
@@ -86,13 +86,13 @@ async function loadQuestion() {
                 // console.log(timeLeft)
                 if (timeLeft < 1) {
                     clearInterval(timer)
-                    next();
+                    next(); //chuyển sang câu hỏi tiếp theo
                 }
             }, 1000)
         }
         //đáp án
         //xử lý với tln
-        if (!qData.incorrectAnswers) {
+        if (qData.type === "short") {
             //tạo ra ô trả lời
             let shortInput = document.createElement("input")
             shortInput.type = "text"
@@ -226,11 +226,11 @@ async function loadQuestion() {
                 let nameDisplay = document.createElement("div")
                 nameDisplay.className = "name-display"
                 if (!currentUID) {
-                    nameDisplay.innerText = "Người chơi:" + namep
+                    nameDisplay.innerText = "Người chơi: Khách"
                 }
                 else {
                     db.collection("users").doc(currentUID).get().then(doc => {
-                        nameDisplay.innerText = "Ngời chơi:" + doc.data().username
+                        nameDisplay.innerText = "Người chơi:" + doc.data().username
                     })
                 }
                 showScore.appendChild(nameDisplay)

@@ -17,6 +17,7 @@
 <body>
     <div class="logo-container">
         <img src="/Client/data/Screenshot 2025-12-15 213727.jpg" alt="">
+        <!-- <p id="date"></p> -->
     </div>
     <header id="header">
 
@@ -27,9 +28,10 @@
             <button class="btn" id="create">Create</button>
         </div>
         <!-- Tìm kiếm quiz & khóa học -->
-        <input type="text" placeholder=" Tìm kiếm quiz & courses" id="search-bar">
-        <button class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input type="text" placeholder=" Tìm kiếm quizzes" id="search-bar">
+        <button id="search-icon" class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
     </header>
+    <div id="search-container" class="search-container"></div>
     <div id="container">
         <div class="short-intro">
             <h1 class="intro-heading">Mô tả về QuizLab</h1>
@@ -61,7 +63,7 @@
         </div>
         <div id="begin">
             <h1 class="intro-heading">Bạn còn chờ đợi gì nữa?</h1>
-            <button class="start">Bắt đầu ngay</button>
+            <button onclick="window.location.href = 'login.html'" id="startLogin" class="start">Bắt đầu ngay</button>
         </div>
 
 
@@ -77,23 +79,19 @@
 
             <div class="footer-links">
                 <h4>Khám phá</h4>
-                <a href="#">Trang chủ</a>
-                <a href="#">Quiz</a>
-                <a href="#">Tạo quiz</a>
+                <a href="home.html">Trang chủ</a>
+                <a href="profile.html">Quiz</a>
+                <a href="#create.html">Tạo quiz</a>
             </div>
 
-            <div class="footer-links">
-                <h4>Dành cho</h4>
-                <a href="#">Giáo viên</a>
-                <a href="#">Học sinh</a>
+            <div class="footer-links2">
+                <h4>Liên hệ</h4>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                 <a href="#"><i class="fa-brands fa-youtube"></i></a>
             </div>
 
-            <div class="footer-links">
-                <h4>Hỗ trợ</h4>
-                <a href="#">Giới thiệu</a>
-                <a href="#">Điều khoản</a>
-                <a href="#">Liên hệ</a>
-            </div>
+         
 
         </div>
 

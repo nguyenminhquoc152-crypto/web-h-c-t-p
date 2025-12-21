@@ -24,6 +24,14 @@ body {
     height: 70px;
     background-color: white;
 }
+#date {
+    font-size: 25px;
+    color: #979494;
+    position: relative;
+    left: 80%;
+    font-weight: bold;
+    bottom: 52px;
+}
 .logo-container img{
     height: 100%;
     padding: 0;
@@ -124,7 +132,7 @@ body {
 }
 
 #function {
-    background-color: #81f38b;
+    background-color: #c5fdca;
     margin-top: 30px;
     margin-left: 20px;
     margin-right: 20px;
@@ -406,7 +414,72 @@ body {
     position: relative;
     bottom: 100px;
 }
+/* display 3 */
+.other-container {
+    margin-top: 40px;
+    background: linear-gradient(135deg, #FFD3B6, #FFAAA5);
+    width: 95%;
+    height: fit-content;
+    position: relative;
+    left: 35px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 20px 2px rgb(197, 194, 194);
+    margin-top: 50px;
+}
+.other-quiz-container {
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    width: 95%;
+    gap: 15px;
+    padding-top: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.containing-dis3 {
+    width: 380px;
+    height: 380px;
+    background-color: rgb(214, 221, 219);
+    border-radius: 10px;
+    margin-top: 40px;
+    border-radius: 10px;
+    
+    animation: softZoom 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.homeq-title-dis3 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10px;
+    height: 45px;
+}
+.descript-dis3,.author3 {
+    margin-left: 20px;
 
+}
+.avatar-dis3 {
+    width: 380px;
+    height: 250px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+.play-btn3 {
+    width: 100%;
+    color: white;
+    background: linear-gradient(135deg, #18A558, #00712D);
+    position: relative;
+    top: 17px;
+    height: 50px;
+    font-size: 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.big-title3 {
+    font-size: 45px;
+    position: relative;
+    bottom: 1320px;
+    left: 15px;
+    font-weight: bold;
+}
 /* Trang chi tiết các bộ caau hỏi */
 .detail-quiz {
     width: 720px;
@@ -449,6 +522,11 @@ body {
     line-height: 1.5;
     margin-left: 20px;
 }
+.detail-quiz p {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
 
 .detail-play {
     width: 90%;
@@ -486,41 +564,57 @@ body {
     max-width: 1200px;
     margin: auto;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr ;
     gap: 30px;
 }
 
 .footer-brand h2 {
-    font-size: 26px;
+    font-size: 29px;
     font-weight: bold;
     color: white;
 }
 
 .footer-brand h2 span {
   color: #fa8416;
+  font-size: 29px;
 }
 
 .footer-brand p {
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 16px;
     color: #ccc;
 }
 
 .footer-links h4 {
     margin-bottom: 12px;
-    font-size: 15px;
+    font-size: 25px;
     color: #fff;
 }
 
 .footer-links a {
     display: block;
     margin-bottom: 8px;
-    font-size: 14px;
+    font-size: 18px;
     color: #ccc;
     text-decoration: none;
 }
+.footer-links2 a {
+    
+    margin-bottom: 8px;
+    font-size: 38px;
+    color: #ccc;
+    text-decoration: none;
+}
+.footer-links2 h4 {
+    margin-bottom: 12px;
+    font-size: 25px;
+    color: #fff;
+}
 
 .footer-links a:hover {
+    color: #4facfe;
+}
+.footer-links2 a:hover {
     color: #4facfe;
 }
 
@@ -532,4 +626,56 @@ body {
     font-size: 13px;
     color: #aaa;
 }
+
+
+/* xử lý sự kiện search */
+.search-container {
+  display: grid;
+  grid-template-columns: repeat(4, 400px);
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+  .quiz-box {
+    margin-top: 30px;
+    width: 400px;
+    height: 370px;
+  
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  .quiz-avatar {
+    width: 400px;
+    height: 200px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    margin-right: 20px;
+  }
+  .play-btn-search {
+    width: 100%;
+    color: white;
+    background: linear-gradient(135deg, #18A558, #00712D);
+    position: relative;
+    top: 18px;
+    border: none;
+    height: 51px;
+    font-size: 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    }
+    .quiz-title {
+      font-size: 30px;
+      font-weight: bold;
+      margin-left: 15px;
+      padding: 0;
+    }
+    .quiz-box p {
+      font-size: 20px;
+      margin-left: 15px;
+    }
+
+
 

@@ -13,6 +13,7 @@
 <body>
   <div class="logo-container">
     <img src="/Client/data/Screenshot 2025-12-15 213727.jpg" alt="">
+    <p id="date"></p>
   </div>
   <header id="header">
 
@@ -24,9 +25,10 @@
     </div>
     <!-- Tìm kiếm quiz & khóa học -->
     <input type="text" placeholder=" Tìm kiếm quiz & courses" id="search-bar">
-    <button class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <button id="search-icon" class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
   </header>
-  <div class="profile-container">
+  <div class="search-container" id="search-container"></div>
+  <div id="profiled" class="profile-container">
 
     <!-- LEFT: Thông tin cá nhân -->
     <div class="profile-left">
@@ -74,9 +76,10 @@
 
         <div id="quiz-item-teacher" class="quiz-item-teachers">
         </div>
-
-
+          
+ 
       </div>
+      <button id="logout">Logout</button>
     </div>
   </div>
   <!-- footer -->
@@ -88,25 +91,19 @@
             <p>Học tập thông minh hơn thông qua các bộ câu hỏi tương tác.</p>
         </div>
 
-        <div class="footer-links">
-            <h4>Khám phá</h4>
-            <a href="#">Trang chủ</a>
-            <a href="#">Quiz</a>
-            <a href="#">Tạo quiz</a>
-        </div>
+       <div class="footer-links">
+                <h4>Khám phá</h4>
+                <a href="home.html">Trang chủ</a>
+                <a href="profile.html">Quiz</a>
+                <a href="#create.html">Tạo quiz</a>
+            </div>
 
-        <div class="footer-links">
-            <h4>Dành cho</h4>
-            <a href="#">Giáo viên</a>
-            <a href="#">Học sinh</a>
-        </div>
-
-        <div class="footer-links">
-            <h4>Hỗ trợ</h4>
-            <a href="#">Giới thiệu</a>
-            <a href="#">Điều khoản</a>
-            <a href="#">Liên hệ</a>
-        </div>
+            <div class="footer-links2">
+                <h4>Liên hệ</h4>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                 <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
 
     </div>
 
